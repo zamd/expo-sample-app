@@ -1,14 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {Router, Scene} from 'react-native-router-flux';
+
+
+import Home from './views/home';
+import Login from './views/login';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Router>
+        <Scene key="root">
+          <Scene key="home" initial={true} component={Home} title="Home"/>
+          <Scene key="login" component={Login} title="Login"/>
+        </Scene>
+      </Router>
     );
   }
 }
